@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #141e30, #243b55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Music Player Card */
+.player {
+  width: 320px;
+  background: #111;
+  border-radius: 20px;
+  padding: 20px;
+  color: #fff;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+}
+
+/* Album Cover — IMAGE */
+.cover {
+  height: 180px;
+  border-radius: 15px;
+  background-image: url("PHOTO.jpg"); /* ✅ EXACT NAME */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 15px;
+  box-shadow: inset 0 0 40px rgba(0,0,0,0.4);
+}
+
+/* Song Details */
+.details {
+  text-align: center;
+}
+
+.details h2 {
+  font-size: 20px;
+}
+
+.details p {
+  font-size: 14px;
+  color: #aaa;
+  margin-top: 5px;
+}
+
+/* Progress Bar */
+.progress-container {
+  height: 5px;
+  background: #333;
+  border-radius: 10px;
+  margin: 20px 0;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background: #ff4b2b;
+  animation: progressMove 8s linear infinite;
+}
+
+@keyframes progressMove {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.2);
+}
+
+/* Play / Pause Button */
+#play-toggle {
+  display: none;
+}
+
+.play-btn {
+  width: 60px;
+  height: 60px;
+  background: #ff4b2b;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+}
+
+.play-btn::before {
+  content: "";
+  position: absolute;
+  left: 24px;
+  top: 18px;
+  border-style: solid;
+  border-width: 12px 0 12px 18px;
+  border-color: transparent transparent transparent white;
+}
+
+#play-toggle:checked + .play-btn::before {
+  content: "";
+  width: 6px;
+  height: 24px;
+  background: white;
+  box-shadow: 12px 0 0 white;
+  left: 18px;
+  top: 18px;
+  border: none;
+}
+
+/* Volume */
+.volume {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.volume input {
+  width: 100%;
+  cursor: pointer;
+}
